@@ -158,4 +158,4 @@ For major changes, discuss them first by opening an issue.
 📄 License
 This project is licensed under the MIT License – see the LICENSE file for details.
 
-<div align="center">Built with ❤️ by <a href="https://github.com/MuhammadShoaib20">Muhammad Shoaib</a></div> ```
+<div align="center">Built with ❤️ by <a href="https://github.com/MuhammadShoaib20">Muhammad Shoaib</a></div> 
