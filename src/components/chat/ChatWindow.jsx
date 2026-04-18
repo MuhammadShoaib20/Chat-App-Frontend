@@ -463,9 +463,11 @@ const ChatWindow = ({ conversationId, conversation, onOpenInfo, onOpenSidebar })
     socket?.emit('edit-message', { messageId: id, content });
   }, [socket]);
 
-  const handleDelete = useCallback((id) => {
-    socket?.emit('delete-message', { messageId: id });
-  }, [socket]);
+const handleDelete = useCallback((id) => {
+  console.log('🟡 Delete clicked, ID:', id);
+  console.log('🟡 Socket connected?', socket?.connected);
+  socket?.emit('delete-message', { messageId: id });
+}, [socket]);
 
   const handleAddReaction = useCallback((id, emoji) => {
     socket?.emit('add-reaction', { messageId: id, emoji });
