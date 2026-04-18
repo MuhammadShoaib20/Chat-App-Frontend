@@ -1,161 +1,198 @@
-# SyncChat – Frontend
+# 💬 SyncChat – Frontend
 
-A modern, real-time chat application built with the **MERN stack**. This repository contains the **frontend** codebase for SyncChat – a feature-rich messaging platform with instant messaging, group chats, file sharing, and more.
+A modern, real-time chat application built with the **MERN stack**. This repository contains the **frontend** codebase for SyncChat — a feature-rich messaging platform with instant messaging, group chats, file sharing, and more.
 
-🔗 **Live Demo:** [https://chat-app-frontend-gules-one.vercel.app/](https://chat-app-frontend-gules-one.vercel.app/)
-🐙 **GitHub:** [https://github.com/MuhammadShoaib20/Chat-App-Frontend](https://github.com/MuhammadShoaib20/Chat-App-Frontend)
-🖥️ **Backend API:** [https://chat-app-backend-production-13f7.up.railway.app/api](https://chat-app-backend-production-13f7.up.railway.app/api)
+---
+
+## 🔗 Links
+
+* 🚀 **Live Demo:**
+  https://chat-app-frontend-gules-one.vercel.app/
+
+* 🐙 **GitHub Repository:**
+  https://github.com/MuhammadShoaib20/Chat-App-Frontend
+
+* 🖥️ **Backend API:**
+  https://chat-app-backend-production-13f7.up.railway.app/api
 
 ---
 
 ## 🚀 Features
 
-- **Real-time messaging** with Socket.io – instant delivery, typing indicators, and read receipts
-- **Group chats** – create groups, add members, assign admins, and manage group details
-- **File sharing** – upload images and files directly in conversations with automatic preview
-- **User authentication** – JWT-based auth with protected routes
-- **Dark mode** – toggle between light and dark themes (persisted in `localStorage`)
-- **Emoji picker** – full emoji support with reactions on messages
-- **Message actions** – edit, delete, and copy your own messages
-- **Block/unblock users** – control who can message you
-- **Responsive design** – works seamlessly on mobile, tablet, and desktop
-- **Offline support** – service worker for push notifications (optional)
+* ⚡ **Real-time messaging** (Socket.io)
+  → Instant delivery, typing indicators, read receipts
+
+* 👥 **Group chats**
+  → Create groups, manage members, assign admins
+
+* 📁 **File sharing**
+  → Upload images/files with preview support
+
+* 🔐 **Authentication**
+  → JWT-based auth with protected routes
+
+* 🌙 **Dark mode**
+  → Light/Dark theme with `localStorage` persistence
+
+* 😀 **Emoji picker**
+  → Full emoji support with reactions
+
+* ✏️ **Message actions**
+  → Edit, delete, copy messages
+
+* 🚫 **Block/Unblock users**
+  → Control who can message you
+
+* 📱 **Responsive design**
+  → Works on mobile, tablet, desktop
+
+* 🔔 **Offline support (optional)**
+  → Service worker + push notifications
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| React 18 | UI library |
-| Vite | Build tool and dev server |
-| Tailwind CSS | Styling |
-| React Router v7 | Routing |
-| Socket.io-client | Real-time communication |
-| Axios | HTTP requests |
-| React Hot Toast | Notifications |
-| Emoji Mart | Emoji picker |
-| React Window | Virtualized message list |
-| Date-fns | Date formatting |
+| Technology       | Purpose                 |
+| ---------------- | ----------------------- |
+| React 18         | UI Library              |
+| Vite             | Build Tool              |
+| Tailwind CSS     | Styling                 |
+| React Router v7  | Routing                 |
+| Socket.io-client | Real-time Communication |
+| Axios            | API Requests            |
+| React Hot Toast  | Notifications           |
+| Emoji Mart       | Emoji Picker            |
+| React Window     | Virtualization          |
+| Date-fns         | Date Formatting         |
 
 ---
 
 ## 📦 Prerequisites
 
-- Node.js **v18 or higher**
-- npm or yarn
+* Node.js **v18+**
+* npm or yarn
 
 ---
 
 ## 🔧 Installation & Setup
 
-**1. Clone the repository:**
+### 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/MuhammadShoaib20/Chat-App-Frontend.git
 cd Chat-App-Frontend
-2. Install dependencies:
+```
 
-bash
+### 2️⃣ Install Dependencies
+
+```bash
 npm install
-3. Set up environment variables:
+```
 
-Create a .env file in the root of the project:
+### 3️⃣ Setup Environment Variables
 
-env
+Create a `.env` file in root:
+
+```env
 VITE_API_URL=https://chat-app-backend-production-13f7.up.railway.app
-VITE_VAPID_PUBLIC_KEY=your_vapid_public_key   # optional, for push notifications
-Note: Replace VITE_API_URL with your actual backend base URL.
+VITE_VAPID_PUBLIC_KEY=your_vapid_public_key
+```
 
-4. Start the development server:
+> Replace `VITE_API_URL` with your backend URL.
 
-bash
+---
+
+### 4️⃣ Run Development Server
+
+```bash
 npm run dev
-Open http://localhost:5173 in your browser.
+```
 
-📁 Project Structure
-text
+👉 Open: http://localhost:5173
+
+---
+
+## 📁 Project Structure
+
+```
 frontend/
-├── public/                   # Static assets
+├── public/
 ├── src/
 │   ├── components/
-│   │   ├── chat/             # Chat-specific components
-│   │   │   ├── Avatar.jsx
-│   │   │   ├── ChatWindow.jsx
-│   │   │   ├── ConversationList.jsx
-│   │   │   ├── CreateGroupModal.jsx
-│   │   │   ├── GroupInfoPanel.jsx
-│   │   │   ├── MessageActions.jsx
-│   │   │   ├── MessageBubble.jsx
-│   │   │   ├── MessageInput.jsx
-│   │   │   └── NewChatModal.jsx
+│   │   ├── chat/
 │   │   ├── layout/
-│   │   │   └── Header.jsx
 │   │   └── ErrorBoundary.jsx
-│   ├── context/              # React contexts
-│   │   ├── AuthContext.jsx
-│   │   ├── AuthProvider.jsx
-│   │   ├── SocketContext.jsx
-│   │   ├── SocketProvider.jsx
-│   │   ├── ThemeContext.jsx
-│   │   └── ThemeProvider.jsx
-│   ├── hooks/                # Custom hooks
-│   │   ├── useAuth.js
-│   │   ├── useSocket.js
-│   │   └── useSocketEvents.js
+│   ├── context/
+│   ├── hooks/
 │   ├── pages/
-│   │   ├── ChatPage.jsx
-│   │   ├── HomePage.jsx
-│   │   ├── LoginPage.jsx
-│   │   ├── ProfilePage.jsx
-│   │   └── RegisterPage.jsx
-│   ├── services/             # API service modules
-│   │   ├── api.js
-│   │   ├── conversationService.js
-│   │   ├── messageService.js
-│   │   ├── notificationService.js
-│   │   ├── uploadService.js
-│   │   └── userService.js
+│   ├── services/
 │   ├── App.jsx
 │   ├── main.jsx
-│   └── index.css             # Tailwind entry + custom styles
-├── .env                      # Environment variables (not committed)
+│   └── index.css
+├── .env
 ├── index.html
 ├── package.json
-├── postcss.config.js
 ├── tailwind.config.js
-├── vite.config.js
-└── README.md
-📜 Available Scripts
-Command	Description
-npm run dev	Start development server with hot reload
-npm run build	Build for production
-npm run preview	Preview the production build locally
-npm run lint	Run ESLint
-🌐 Deployment
-The frontend is deployed on Vercel. You can deploy to any static hosting service.
+└── vite.config.js
+```
 
-Steps to deploy on Vercel:
+---
 
-Push your code to a GitHub repository
+## 📜 Available Scripts
 
-Import the project in Vercel
+| Command         | Description              |
+| --------------- | ------------------------ |
+| npm run dev     | Start development server |
+| npm run build   | Build for production     |
+| npm run preview | Preview production build |
+| npm run lint    | Run ESLint               |
 
-Add environment variable: VITE_API_URL → your backend URL
+---
 
-Click Deploy
+## 🌐 Deployment (Vercel)
 
-⚠️ Important: Make sure your backend is configured to accept requests from your frontend domain (CORS).
+### Steps:
 
-🔐 Environment Variables
-Variable	Description	Required
-VITE_API_URL	Base URL of your backend API	✅ Yes
-VITE_VAPID_PUBLIC_KEY	VAPID public key for web push notifications	❌ No
-🤝 Contributing
-Contributions are welcome! Please open an issue or submit a pull request.
-For major changes, discuss them first by opening an issue.
+1. Push code to GitHub
+2. Import project in Vercel
+3. Add environment variable:
+   `VITE_API_URL` → your backend URL
+4. Click **Deploy**
 
-📄 License
-This project is licensed under the MIT License – see the LICENSE file for details.
+⚠️ **Important:**
+Make sure backend allows your frontend domain (**CORS configured**).
 
-<div align="center">Built with ❤️ by <a href="https://github.com/MuhammadShoaib20">Muhammad Shoaib</a></div> 
+---
+
+## 🔐 Environment Variables
+
+| Variable              | Description            | Required |
+| --------------------- | ---------------------- | -------- |
+| VITE_API_URL          | Backend API Base URL   | ✅ Yes    |
+| VITE_VAPID_PUBLIC_KEY | Push Notifications Key | ❌ No     |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+* Open an issue
+* Submit a pull request
+* Discuss major changes first
+
+---
+
+## 📄 License
+
+Licensed under the **MIT License**.
+
+---
+
+<div align="center">
+
+❤️ Built with passion by
+**Muhammad Shoaib**
+
+</div>
