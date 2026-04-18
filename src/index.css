@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Soft Dark Mode: Pure black ke bajaye Charcoal gray (#1a1d21) use kiya hai */
+    @apply bg-white dark:bg-[#1a1d21] text-gray-900 dark:text-gray-200 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100%;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+  }
+}
+
+@layer components {
+  /* WhatsApp Style Doodle Pattern Container */
+  .chat-bg {
+    position: relative;
+    z-index: 0;
+  }
+
+  .chat-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.06; /* Light mode pattern opacity */
+    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+    background-repeat: repeat;
+    background-size: 400px;
+    pointer-events: none;
+  }
+
+  /* Dark mode mein pattern ko subtle aur inverted kiya */
+  .dark .chat-bg::before {
+    opacity: 0.02;
+    filter: invert(1);
+  }
+
+  /* Chat window ka original WhatsApp color shade */
+  .chat-window-gradient {
+    @apply bg-[#efe7de] dark:bg-[#0b141a];
+  }
+
+  /* Glassmorphism for floating UI elements */
+  .glass {
+    @apply bg-white/80 dark:bg-gray-800/40 backdrop-blur-md border border-white/20 dark:border-white/5;
+  }
+
+  /* Custom Scrollbar for Chat and Sidebars */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300/60 dark:bg-gray-700/50 rounded-full;
+    transition: background 0.2s;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+
+  /* Standard Input Style */
+  .input-base {
+    @apply w-full px-4 py-3 bg-gray-50 dark:bg-[#111315] border border-gray-200 dark:border-gray-700/50 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all duration-200;
+  }
+
+  /* Primary Button Style */
+  .btn-primary {
+    @apply px-5 py-2.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold rounded-xl shadow-md shadow-blue-500/20 transition-all duration-200 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+}
+
+/* Animations */
+@keyframes fade-in { 
+  from { opacity: 0; transform: translateY(8px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes slide-up { 
+  from { opacity: 0; transform: translateY(12px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes blob { 
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+.animate-fade-in  { animation: fade-in  0.3s ease-out forwards; }
+.animate-slide-up { animation: slide-up 0.4s ease-out forwards; }
+.animate-blob     { animation: blob 7s ease-in-out infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
