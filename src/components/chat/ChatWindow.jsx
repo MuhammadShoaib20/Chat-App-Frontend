@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
-import { getMessages, markAsRead, searchMessages } from '../../services/messageService';
+import { getMessages, markAsRead, searchMessages, deleteMessageAPI } from '../../services/messageService';
 import { useSocket } from '../../hooks/useSocket';
 import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../context/ThemeContext';
@@ -9,6 +9,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { blockUser, getBlockStatus, unblockUser } from '../../services/userService';
 import { format } from 'date-fns';
+import toast from 'react-hot-toast';
 
 // --- Helper Functions ---
 const formatDateHeader = (date) => {
@@ -463,11 +464,19 @@ const ChatWindow = ({ conversationId, conversation, onOpenInfo, onOpenSidebar })
     socket?.emit('edit-message', { messageId: id, content });
   }, [socket]);
 
-const handleDelete = useCallback((id) => {
-  console.log('🟡 Delete clicked, ID:', id);
-  console.log('🟡 Socket connected?', socket?.connected);
-  socket?.emit('delete-message', { messageId: id });
-}, [socket]);
+  // ✅ FIX: Use REST API delete instead of socket
+  const handleDelete = useCallback(async (id) => {
+    console.log('🟡 Delete clicked, ID:', id);
+    try {
+      await deleteMessageAPI(id);
+      // Remove message from UI immediately
+      setMessages(prev => prev.filter(m => m._id !== id));
+      toast.success('Message deleted');
+    } catch (err) {
+      console.error('Delete failed:', err);
+      toast.error(err.response?.data?.message || 'Failed to delete message');
+    }
+  }, []);
 
   const handleAddReaction = useCallback((id, emoji) => {
     socket?.emit('add-reaction', { messageId: id, emoji });

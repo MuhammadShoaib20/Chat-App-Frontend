@@ -19,3 +19,9 @@ export const searchMessages = async ({ conversationId, q }) => {
   const response = await api.get(`/api/messages/search?conversationId=${conversationId}&q=${encodeURIComponent(q)}`);
   return response.data;
 };
+
+// ✅ Delete message using REST API
+export const deleteMessageAPI = async (messageId) => {
+  const response = await api.delete(`/api/messages/${messageId}`);
+  return response.data;
+};
