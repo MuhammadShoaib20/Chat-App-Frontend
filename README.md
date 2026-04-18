@@ -2,9 +2,9 @@
 
 A modern, real-time chat application built with the **MERN stack**. This repository contains the **frontend** codebase for SyncChat – a feature-rich messaging platform with instant messaging, group chats, file sharing, and more.
 
-🔗 **Live Demo:** [https://chat-app-theta-seven-44.vercel.app/](https://chat-app-theta-seven-44.vercel.app/)
-🐙 **GitHub:** [https://github.com/MuhammadShoaib20/chat-app](https://github.com/MuhammadShoaib20/chat-app)
-🖥️ **Backend API:** [https://chat-app-14ut.onrender.com/api](https://chat-app-14ut.onrender.com/api)
+🔗 **Live Demo:** [https://chat-app-frontend-gules-one.vercel.app/](https://chat-app-frontend-gules-one.vercel.app/)
+🐙 **GitHub:** [https://github.com/MuhammadShoaib20/Chat-App-Frontend](https://github.com/MuhammadShoaib20/Chat-App-Frontend)
+🖥️ **Backend API:** [https://chat-app-backend-production-13f7.up.railway.app/api](https://chat-app-backend-production-13f7.up.railway.app/api)
 
 ---
 
@@ -52,40 +52,29 @@ A modern, real-time chat application built with the **MERN stack**. This reposit
 **1. Clone the repository:**
 
 ```bash
-git clone https://github.com/MuhammadShoaib20/chat-app.git
-cd chat-app/frontend
-```
+git clone https://github.com/MuhammadShoaib20/Chat-App-Frontend.git
+cd Chat-App-Frontend
+2. Install dependencies:
 
-**2. Install dependencies:**
-
-```bash
+bash
 npm install
-```
+3. Set up environment variables:
 
-**3. Set up environment variables:**
+Create a .env file in the root of the project:
 
-Create a `.env` file in the root of the `frontend/` folder:
-
-```env
-VITE_API_URL=https://chat-app-14ut.onrender.com
+env
+VITE_API_URL=https://chat-app-backend-production-13f7.up.railway.app
 VITE_VAPID_PUBLIC_KEY=your_vapid_public_key   # optional, for push notifications
-```
+Note: Replace VITE_API_URL with your actual backend base URL.
 
-> **Note:** Replace `VITE_API_URL` with your actual backend base URL.
+4. Start the development server:
 
-**4. Start the development server:**
-
-```bash
+bash
 npm run dev
-```
+Open http://localhost:5173 in your browser.
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
-## 📁 Project Structure
-
-```
+📁 Project Structure
+text
 frontend/
 ├── public/                   # Static assets
 ├── src/
@@ -137,56 +126,36 @@ frontend/
 ├── tailwind.config.js
 ├── vite.config.js
 └── README.md
-```
+📜 Available Scripts
+Command	Description
+npm run dev	Start development server with hot reload
+npm run build	Build for production
+npm run preview	Preview the production build locally
+npm run lint	Run ESLint
+🌐 Deployment
+The frontend is deployed on Vercel. You can deploy to any static hosting service.
 
----
+Steps to deploy on Vercel:
 
-## 📜 Available Scripts
+Push your code to a GitHub repository
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint |
+Import the project in Vercel
 
----
+Add environment variable: VITE_API_URL → your backend URL
 
-## 🌐 Deployment
+Click Deploy
 
-The frontend is deployed on **Vercel**. You can deploy to any static hosting service.
+⚠️ Important: Make sure your backend is configured to accept requests from your frontend domain (CORS).
 
-**Steps to deploy on Vercel:**
-
-1. Push your code to a GitHub repository
-2. Import the project in [Vercel](https://vercel.com)
-3. Add environment variable: `VITE_API_URL` → your backend URL
-4. Click **Deploy**
-
-> ⚠️ **Important:** Make sure your backend is configured to accept requests from your frontend domain (CORS).
-
----
-
-## 🔐 Environment Variables
-
-| Variable | Description | Required |
-|---|---|---|
-| `VITE_API_URL` | Base URL of your backend API | ✅ Yes |
-| `VITE_VAPID_PUBLIC_KEY` | VAPID public key for web push notifications | ❌ No |
-
----
-
-## 🤝 Contributing
-
+🔐 Environment Variables
+Variable	Description	Required
+VITE_API_URL	Base URL of your backend API	✅ Yes
+VITE_VAPID_PUBLIC_KEY	VAPID public key for web push notifications	❌ No
+🤝 Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
 For major changes, discuss them first by opening an issue.
 
----
+📄 License
+This project is licensed under the MIT License – see the LICENSE file for details.
 
-## 📄 License
-
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">Built with ❤️ by <a href="https://github.com/MuhammadShoaib20">Muhammad Shoaib</a></div>
+<div align="center">Built with ❤️ by <a href="https://github.com/MuhammadShoaib20">Muhammad Shoaib</a></div> ```
